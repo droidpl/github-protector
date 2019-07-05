@@ -1,0 +1,1 @@
+/Applications/ngrok http 3000

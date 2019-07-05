@@ -19,22 +19,20 @@ for Linux or Windows installations of the service.
 
 To run this scripts you will need to have installed:
 - npm
-- node
+- node 9+ (tested on v12.2.0)
 - yarn
 
 ## Running instructions
 
 To configure the environment:
-- Calculate the sha1 of the secret you want to use as verification for the webhook
-See the following example:
-```bash
-> echo -n "secret" | openssl sha1
-e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4
-```
+- Select the secret ([Github reference](https://developer.github.com/webhooks/securing/)) you want to use as verification for the webhook
 - Add this on the .env file in the GITHUB_SECRET variable
 - Deploy the service and obtain a publicly accessible url
 > Note you can deploy it using ngrok for testing purposes. On a production environment
 You should use an infrastructure such as lambdas.
+
+> Never commit your env variables to the repository with the ones that will be used in a 
+production environment. The ones currently present are just mocks to be changed
 
 Now with the url you obtained:
 - Go to your organization's Github and access *Organization > Settings > Webhooks*
@@ -46,7 +44,7 @@ Now with the url you obtained:
 
 
 
-### Locally
+### Run locally
 
 To execute the service locally, in the root folder:
 
@@ -54,6 +52,9 @@ To execute the service locally, in the root folder:
 yarn install
 npm run start 
 ```
+
+The service will be accessible on ``localhost:3000``. You can configure the ``PORT``
+env variable in the ``.env`` file.
 
 ## Running the tests
 
@@ -67,5 +68,7 @@ npm run test
 ## Sources
 
 - [Sha1 calculation](http://osxdaily.com/2012/06/06/check-sha1-hash-of-string/)
-
-
+- [Env variable setup](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786)
+- [Some boilerplate config for ES6](https://medium.com/@onlykiosk/complete-babel-7-guide-for-beginners-in-2019-7dd78214c464)
+- [Github webhook documentation](https://developer.github.com/webhooks/)
+- [Koa router documentation](https://github.com/ZijianHe/koa-router) and [Koa documentation](https://koajs.com/)
