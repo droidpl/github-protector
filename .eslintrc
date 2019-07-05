@@ -1,0 +1,53 @@
+{
+  "plugins": [
+    "promise",
+    "jest",
+  ],
+  "extends": [
+    "standard",
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "plugin:promise/recommended",
+    "plugin:jest/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "prettier"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true,
+      "spread" : true,
+      "restParams" : true
+    }
+  },
+  "rules": {
+    "no-console": 1,
+    "no-async-promise-executor": 1,
+    "no-await-in-loop": 1,
+    "import/imports-first": 0,
+    "import/newline-after-import": 0,
+    "import/no-dynamic-require": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default": 0,
+    "import/no-unresolved": 2,
+    "import/prefer-default-export": 0,
+    "standard/array-bracket-even-spacing": 0,
+    "standard/computed-property-even-spacing": 0,
+    "standard/object-curly-even-spacing": 0,
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      {
+        "ignores": ["modules"]
+      }
+    ],
+    "node/no-unpublished-require": ["error", {
+      "allowModules": ["serverless-webpack", "webpack-node-externals"]
+    }]
+  }
+}

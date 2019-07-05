@@ -1,0 +1,66 @@
+{
+  "name": "github-protector",
+  "version": "1.0.0",
+  "description": "Interview test to protect the github repository when created on an organization",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shield-org/github-protector.git"
+  },
+  "author": "Javier de Pedro <javierdepedrolopez@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "jest test --runInBand",
+    "test:changed": "jest -o --passWithNoTests",
+    "eslint-check": "node_modules/.bin/eslint --print-config . | eslint-config-prettier-check",
+    "eslint": "node_modules/.bin/eslint src/",
+    "prettier": "prettier --config .prettierrc --write '**/*.js'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "npm run prettier",
+        "npm run eslint",
+        "git add"
+      ]
+    }
+  },
+  "keywords": [
+    "Github",
+    "Interview",
+    "Gatekeeper",
+    "Webhook",
+    "Organization",
+    "Protect"
+  ],
+  "dependencies": {
+    "axios": "0.19.0",
+    "joi": "14.3.1",
+    "koa": "2.7.0",
+    "koa-router": "7.4.0",
+    "koa2-joi-validate": "0.5.0"
+  },
+  "devDependencies": {
+    "jest": "24.8.0",
+    "axios-mock-adapter": "1.16.0",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.2.0",
+    "eslint-config-standard": "12.0.0",
+    "eslint-plugin-import": "2.17.2",
+    "eslint-plugin-jest": "22.5.1",
+    "eslint-plugin-node": "9.0.1",
+    "eslint-plugin-promise": "4.1.1",
+    "eslint-plugin-standard": "4.0.0",
+    "husky": "2.2.0",
+    "lint-staged": "8.1.6",
+    "prettier": "1.17.0"
+  }
+}
