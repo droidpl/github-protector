@@ -85,6 +85,7 @@ firebase functions:config:set github.secret="changeme" github.token="changeme"
 ```
 - Execute the deploy
 ```
+npm run functions:predeploy
 npm run functions:deploy
 ```
 

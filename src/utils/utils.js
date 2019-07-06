@@ -6,3 +6,10 @@ export const getBody = (ctx) => {
 export const getRawBody = (ctx) => {
   return !LOCAL_ENV ? ctx.req.rawBody : ctx.request.rawBody;
 };
+
+export const sleepMiddleware = (timeMillis) => {
+  return async (ctx, next) => {
+    await new Promise((resolve) => setTimeout(resolve, timeMillis));
+    await next();
+  };
+};
