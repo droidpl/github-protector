@@ -5,6 +5,7 @@ import responseHandler from './utils/response-handler';
 import errorHandler from './utils/error-handler';
 import githubSecurityMiddleware from './utils/github-security-middleware';
 import { repositoryWebhook, hookValidation } from './controllers/hook-controller';
+import { LOCAL_ENV } from './utils/env';
 
 export default (app) => {
   const router = new Router();
@@ -15,9 +16,11 @@ export default (app) => {
   // Webhook definitions
   router.post('/', githubSecurityMiddleware, validator.body(hookValidation), repositoryWebhook);
 
-  app.use(bodyParser());
   app.use(errorHandler);
   app.use(responseHandler);
+  if (LOCAL_ENV) {
+    app.use(bodyParser());
+  }
   app.use(router.routes());
   app.use(router.allowedMethods());
 };

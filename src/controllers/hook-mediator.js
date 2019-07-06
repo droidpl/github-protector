@@ -3,7 +3,7 @@ import RepositoryBusiness from '../business/repository-business';
 const NO_OP = (hookInfo) => ({
   ok: true,
   processed: false,
-  ...hookInfo,
+  ...hookInfo, // eslint-disable-line
 });
 
 export default async (hookInfo) => {

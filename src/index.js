@@ -1,3 +1,4 @@
 import app from './server';
+import { PORT } from './utils/env';
 
-app.listen(process.env.PORT);
+app.listen(PORT);

@@ -27,6 +27,7 @@ class RepositoryBusiness {
       BRANCH_PROTECTION_NAME,
       sender,
     );
+
     // Create the issue
     const issueInfo = await createReportingIssue(
       owner,

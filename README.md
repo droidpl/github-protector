@@ -16,7 +16,7 @@ for Linux or Windows installations of the service.
 
 To run this scripts you will need to have installed:
 - npm
-- node 9+ (tested on v12.2.0)
+- node 8+ (tested on v12.2.0)
 - yarn
 
 ## Running instructions
@@ -51,7 +51,7 @@ within your organization.
 To execute the service locally, in the root folder:
 
 ```bash
-yarn install
+npm install
 # Normal
 npm run start
 # With hot reload
@@ -66,9 +66,32 @@ env variable in the ``.env`` file.
 Execute the tests with the following commands:
 
 ```bash
-yarn install
+npm install
 npm run test
 ```
+
+## Deploy to firebase functions
+
+To deploy this hook to firebase:
+- Ensure you have installed `firebase-tools`
+```
+npm install -g firebase-tools
+```
+- Execute `firebase login` and enter your credentials
+- Execute `firebase init`, select your firebase project
+ and remove the functions folder that appears
+Add the secret and personal token from installation
+```
+firebase functions:config:set github.secret="changeme" github.token="changeme"
+```
+- Execute the deploy
+```
+yarn functions:deploy
+```
+
+> Ensure your account is a paid one, otherwise it will be limited
+in use and the function will not work. 
+
 
 ## Sources
 

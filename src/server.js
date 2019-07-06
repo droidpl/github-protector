@@ -1,11 +1,12 @@
 import Koa from 'koa';
 import config from './router-config';
+import { GITHUB_PERSONAL_TOKEN, GITHUB_WEBHOOK_SECRET } from './utils/env.js';
 
 // Ensure the env vars are set
-if (!process.env.GITHUB_PERSONAL_TOKEN) {
+if (!GITHUB_PERSONAL_TOKEN) {
   throw new Error('The GITHUB_PERSONAL_TOKEN is not set');
 }
-if (!process.env.GITHUB_WEBHOOK_SECRET) {
+if (!GITHUB_WEBHOOK_SECRET) {
   throw new Error('The GITHUB_WEBHOOK_SECRET is not set');
 }
 
