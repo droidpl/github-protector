@@ -21,7 +21,7 @@ To run this scripts you will need to have installed:
 
 ## Running instructions
 
-####Configure the service variables
+#### Configure the service variables
 - Select the secret ([Github reference](https://developer.github.com/webhooks/securing/)) you want to use as verification for the webhook
 - Generate a personal access token as explained [here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)
 - Add both secret and token to a ``.env`` file in the root folder
