@@ -17,7 +17,6 @@ for Linux or Windows installations of the service.
 To run this scripts you will need to have installed:
 - npm
 - node 8+ (tested on v12.2.0)
-- yarn
 
 ## Running instructions
 
@@ -86,7 +85,7 @@ firebase functions:config:set github.secret="changeme" github.token="changeme"
 ```
 - Execute the deploy
 ```
-yarn functions:deploy
+npm run functions:deploy
 ```
 
 > Ensure your account is a paid one, otherwise it will be limited

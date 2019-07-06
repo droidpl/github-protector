@@ -19,9 +19,9 @@
     "eslint": "node_modules/.bin/eslint src/",
     "prettier": "prettier --config .prettierrc --write '**/*.js'",
     "functions:compile": "babel 'src' --out-dir 'dist' --source-maps",
-    "functions:watch": "yarn functions:compile --watch",
-    "functions:serve": "yarn functions:watch & env-cmd .env_functions firebase serve --only functions",
-    "functions:predeploy": "yarn functions:compile",
+    "functions:watch": "npm run functions:compile --watch",
+    "functions:serve": "npm run functions:watch & env-cmd .env_functions firebase serve --only functions",
+    "functions:predeploy": "npm run functions:compile",
     "functions:deploy": "env-cmd .env firebase deploy --only functions"
   },
   "husky": {
@@ -50,7 +50,6 @@
   ],
   "dependencies": {
     "axios": "0.19.0",
-    "firebase-functions": "^3.0.0",
     "joi": "14.3.1",
     "koa": "2.7.0",
     "koa-bodyparser": "^4.2.1",
@@ -58,7 +57,9 @@
     "koa2-joi-validate": "0.5.0",
     "lodash": "^4.17.11",
     "string-template": "^1.0.0",
-    "x-hub-signature": "^1.2.0"
+    "x-hub-signature": "^1.2.0",
+    "firebase-functions": "^3.0.0",
+    "firebase-admin": "^8.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -68,7 +69,6 @@
     "axios-mock-adapter": "1.16.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
-    "firebase-admin": "^8.0.0",
     "env-cmd": "^8.0.2",
     "eslint": "5.16.0",
     "eslint-config-prettier": "4.2.0",
