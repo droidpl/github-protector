@@ -10,8 +10,11 @@ export const respond = (body, status, ctx) => {
   return ctx.body;
 };
 
-export const throwError = (message, status, ctx) => {
-  ctx.throw(status, message);
+export const throwError = (message, status) => {
+  let error = new Error(message);
+  error.status = status;
+  error.message = message;
+  throw error;
 };
 
 export default ApiResponse;

@@ -4,7 +4,7 @@ import { throwError } from './api-response';
 const GITHUB_SECURITY_HEADER = 'x-hub-signature';
 const sign = signer({
   algorithm: 'sha1',
-  secret: process.env.GITHUB_SECRET,
+  secret: process.env.GITHUB_WEBHOOK_SECRET,
 });
 
 export default async (ctx, next) => {

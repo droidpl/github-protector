@@ -6,11 +6,11 @@ const NO_OP = (hookInfo) => ({
   ...hookInfo,
 });
 
-export default (hookInfo) => {
+export default async (hookInfo) => {
   switch (hookInfo.event) {
     case 'repository':
       if (hookInfo.type === 'created') {
-        return RepositoryBusiness.onRepositoryCreatedHook(hookInfo);
+        return await RepositoryBusiness.onRepositoryCreatedHook(hookInfo.hook);
       } else {
         return NO_OP(hookInfo);
       }

@@ -2,7 +2,7 @@
   "name": "github-protector",
   "version": "1.0.0",
   "description": "Interview test to protect the github repository when created on an organization",
-  "main": "index.js",
+  "main": "dist/firebase.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/shield-org/github-protector.git"
@@ -11,13 +11,19 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "env-cmd .env babel-node src/server.js",
-    "debug": "env-cmd .env nodemon --exec babel-node $NODE_DEBUG_OPTION src/server.js",
+    "start": "env-cmd .env babel-node src/index.js",
+    "debug": "env-cmd .env nodemon --exec babel-node $NODE_DEBUG_OPTION src/index.js",
     "test": "env-cmd .env jest test --runInBand",
     "test:changed": "jest -o --passWithNoTests",
     "eslint-check": "node_modules/.bin/eslint --print-config . | eslint-config-prettier-check",
     "eslint": "node_modules/.bin/eslint src/",
-    "prettier": "prettier --config .prettierrc --write '**/*.js'"
+    "prettier": "prettier --config .prettierrc --write '**/*.js'",
+
+    "compile": "babel 'src' --out-dir 'dist' --source-maps",
+    "watch": "yarn compile --watch",
+    "serve": "yarn watch & env-cmd .env firebase serve --only functions",
+    "predeploy": "yarn compile",
+    "deploy": "env-cmd .env firebase deploy --only functions"
   },
   "husky": {
     "hooks": {
@@ -40,8 +46,12 @@
     "Gatekeeper",
     "Webhook",
     "Organization",
-    "Protect"
+    "Protect",
+    "Branches"
   ],
+  "engines": {
+    "node": "9"
+  },
   "dependencies": {
     "axios": "0.19.0",
     "joi": "14.3.1",
@@ -49,14 +59,17 @@
     "koa-bodyparser": "4.2.1",
     "koa-router": "7.4.0",
     "koa2-joi-validate": "0.5.0",
-    "x-hub-signature": "^1.2.0"
+    "lodash": "^4.17.11",
+    "string-template": "^1.0.0",
+    "x-hub-signature": "^1.2.0",
+    "firebase-admin": "^8.0.0",
+    "firebase-functions": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.5.0",
     "@babel/preset-env": "^7.4.5",
-    "@babel/register": "^7.4.4",
     "axios-mock-adapter": "1.16.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",

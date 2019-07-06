@@ -8,9 +8,6 @@ This service does the following:
 - Once a repository is created, it protects the master branch
 - Generates an issue in the tracker with the changes made in the repository.
 
-> If the repository is created without a README, the master branch will not exist.
-This service creates a dummy README file and commits it in that case.
-
 ## Disclaimer
 All the instructions below are meant for a **Mac OS environment**, the commands might change
 for Linux or Windows installations of the service.
@@ -24,17 +21,21 @@ To run this scripts you will need to have installed:
 
 ## Running instructions
 
-To configure the environment:
+####Configure the service variables
 - Select the secret ([Github reference](https://developer.github.com/webhooks/securing/)) you want to use as verification for the webhook
-- Add this on the .env file in the GITHUB_SECRET variable
+- Generate a personal access token as explained [here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)
+- Add both secret and token to a ``.env`` file in the root folder
+```
+GITHUB_WEBHOOK_SECRET=changeme
+GITHUB_PERSONAL_TOKEN=changeme
+```
+> Never commit your env variables to the repository with the ones that will be used in a 
+production environment. The ones currently present are just mocks to be changed
 - Deploy the service and obtain a publicly accessible url
 > Note you can deploy it using ngrok for testing purposes. On a production environment
 You should use an infrastructure such as lambdas.
 
-> Never commit your env variables to the repository with the ones that will be used in a 
-production environment. The ones currently present are just mocks to be changed
-
-Now with the url you obtained:
+#### Add hook to your Github organization
 - Go to your organization's Github and access *Organization > Settings > Webhooks*
 - Add the url
 - Set content type as application/json
@@ -42,7 +43,8 @@ Now with the url you obtained:
 - On the event selection select 'Let me select individual events'
 - In the list select 'Repositories' (rest of the events are ignored)
 
-
+From now on, the service will be working always you create a repository
+within your organization.
 
 ### Run locally
 
@@ -50,7 +52,10 @@ To execute the service locally, in the root folder:
 
 ```bash
 yarn install
-npm run start 
+# Normal
+npm run start
+# With hot reload
+npm run debug
 ```
 
 The service will be accessible on ``localhost:3000``. You can configure the ``PORT``
@@ -72,3 +77,7 @@ npm run test
 - [Some boilerplate config for ES6](https://medium.com/@onlykiosk/complete-babel-7-guide-for-beginners-in-2019-7dd78214c464)
 - [Github webhook documentation](https://developer.github.com/webhooks/)
 - [Koa router documentation](https://github.com/ZijianHe/koa-router) and [Koa documentation](https://koajs.com/)
+- [Axios docs](https://github.com/axios/axios)
+- [Error handling with koa](http://travisjeffery.com/b/2015/10/error-responses-on-node-js-with-koa/)
+- [Github documentation](https://developer.github.com/v3/)
+- [Babel with firebase functions](https://codeburst.io/cloud-functions-for-firebase-with-babel-flow-typescript-796606628d37)
