@@ -1,0 +1,76 @@
+{
+  "enforce_admins": {
+    "enabled": true,
+    "url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection/enforce_admins"
+  },
+  "required_pull_request_reviews": {
+    "dismiss_stale_reviews": true,
+    "dismissal_restrictions": {
+      "teams": [],
+      "teams_url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection/dismissal_restrictions/teams",
+      "url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection/dismissal_restrictions",
+      "users": [
+        {
+          "avatar_url": "https://avatars2.githubusercontent.com/u/2143931?v=4",
+          "events_url": "https://api.github.com/users/droidpl/events{/privacy}",
+          "followers_url": "https://api.github.com/users/droidpl/followers",
+          "following_url": "https://api.github.com/users/droidpl/following{/other_user}",
+          "gists_url": "https://api.github.com/users/droidpl/gists{/gist_id}",
+          "gravatar_id": "",
+          "html_url": "https://github.com/droidpl",
+          "id": 2143931,
+          "login": "droidpl",
+          "node_id": "MDQ6VXNlcjIxNDM5MzE=",
+          "organizations_url": "https://api.github.com/users/droidpl/orgs",
+          "received_events_url": "https://api.github.com/users/droidpl/received_events",
+          "repos_url": "https://api.github.com/users/droidpl/repos",
+          "site_admin": false,
+          "starred_url": "https://api.github.com/users/droidpl/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/droidpl/subscriptions",
+          "type": "User",
+          "url": "https://api.github.com/users/droidpl"
+        }
+      ],
+      "users_url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection/dismissal_restrictions/users"
+    },
+    "require_code_owner_reviews": true,
+    "url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection/required_pull_request_reviews"
+  },
+  "required_status_checks": {
+    "contexts": [
+      "continuous-integration/jenkins"
+    ],
+    "contexts_url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection/required_status_checks/contexts",
+    "strict": true,
+    "url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection/required_status_checks"
+  },
+  "restrictions": {
+    "teams": [],
+    "teams_url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection/restrictions/teams",
+    "url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection/restrictions",
+    "users": [
+      {
+        "avatar_url": "https://avatars2.githubusercontent.com/u/2143931?v=4",
+        "events_url": "https://api.github.com/users/droidpl/events{/privacy}",
+        "followers_url": "https://api.github.com/users/droidpl/followers",
+        "following_url": "https://api.github.com/users/droidpl/following{/other_user}",
+        "gists_url": "https://api.github.com/users/droidpl/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/droidpl",
+        "id": 2143931,
+        "login": "droidpl",
+        "node_id": "MDQ6VXNlcjIxNDM5MzE=",
+        "organizations_url": "https://api.github.com/users/droidpl/orgs",
+        "received_events_url": "https://api.github.com/users/droidpl/received_events",
+        "repos_url": "https://api.github.com/users/droidpl/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/droidpl/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/droidpl/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/droidpl"
+      }
+    ],
+    "users_url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection/restrictions/users"
+  },
+  "url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection"
+}

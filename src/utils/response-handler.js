@@ -8,10 +8,6 @@ export default async (ctx, next) => {
       ctx.body = ctx.body.body;
     }
   } catch (e) {
-    if (e.isJoi) {
-      ctx.status = 400;
-      ctx.body = e;
-    }
     throw e;
   }
 };

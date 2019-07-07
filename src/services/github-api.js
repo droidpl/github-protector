@@ -3,7 +3,7 @@ import { GITHUB_PERSONAL_TOKEN } from '../utils/env';
 
 export const GITHUB_URL = 'https://api.github.com';
 
-const githubAxios = axios.create({
+export const githubAxios = axios.create({
   baseURL: GITHUB_URL,
   headers: {
     Authorization: `token ${GITHUB_PERSONAL_TOKEN}`,
@@ -22,7 +22,7 @@ const getBranch = async (owner, repositoryName, branchName) => {
 };
 
 const protectBranch = async (owner, repositoryName, branchName, sender) => {
-  const { data } = await githubAxios.put(
+  const response = await githubAxios.put(
     `/repos/${owner}/${repositoryName}/branches/${branchName}/protection`,
     {
       required_status_checks: {
@@ -44,15 +44,15 @@ const protectBranch = async (owner, repositoryName, branchName, sender) => {
       },
     },
   );
-  return data;
+  return response.data;
 };
 
 const createIssue = async (owner, repositoryName, branchName, issueTemplate) => {
-  const { data } = await githubAxios.post(`/repos/${owner}/${repositoryName}/issues`, {
+  const response = await githubAxios.post(`/repos/${owner}/${repositoryName}/issues`, {
     title: `Protections enabled on ${branchName}`,
     body: issueTemplate,
   });
-  return data;
+  return response.data;
 };
 
 export default {

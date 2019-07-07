@@ -1,7 +1,7 @@
 # Github protector
 
 Github protector is a simple web service made with Node that can be installed
-in your prefered environment and can be used as a webhook for organizations.
+in firebase functions and can be used as a webhook for Github organizations.
 
 This service does the following:
 - Listens for Github organization events (create repository)
@@ -113,15 +113,23 @@ in use and the function will not work.
 From now on, the service will be working always you create a repository
 within your organization.
 
+## Library dependencies
+
+- ES6 support for node: [babel](https://babeljs.io/docs/en/babel-node)
+- Networking: [axios](https://github.com/axios/axios)
+- Node server handling: [Koa](https://koajs.com/)
+- Github security header validation: [x-hub-signature](https://github.com/compwright/x-hub-signature)
+- Deployment: [Firebase functions](https://firebase.google.com/docs/functions)
+- Template parsing: [string-template](https://github.com/Matt-Esch/string-template)
 
 ## Sources
 
-- [Sha1 calculation](http://osxdaily.com/2012/06/06/check-sha1-hash-of-string/)
-- [Env variable setup](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786)
+- [Security recommendations](https://developer.github.com/webhooks/securing/)
 - [Some boilerplate config for ES6](https://medium.com/@onlykiosk/complete-babel-7-guide-for-beginners-in-2019-7dd78214c464)
+- [Env variable setup](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786)
 - [Github webhook documentation](https://developer.github.com/webhooks/)
 - [Koa router documentation](https://github.com/ZijianHe/koa-router) and [Koa documentation](https://koajs.com/)
 - [Axios docs](https://github.com/axios/axios)
 - [Error handling with koa](http://travisjeffery.com/b/2015/10/error-responses-on-node-js-with-koa/)
-- [Github documentation](https://developer.github.com/v3/)
+- [Github documentation for web services](https://developer.github.com/v3/)
 - [Babel with firebase functions](https://codeburst.io/cloud-functions-for-firebase-with-babel-flow-typescript-796606628d37)

@@ -1,0 +1,91 @@
+{
+  "_links": {
+    "html": "https://github.com/shield-org/Sample/tree/master",
+    "self": "https://api.github.com/repos/shield-org/Sample/branches/master"
+  },
+  "commit": {
+    "author": {
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2143931?v=4",
+      "events_url": "https://api.github.com/users/droidpl/events{/privacy}",
+      "followers_url": "https://api.github.com/users/droidpl/followers",
+      "following_url": "https://api.github.com/users/droidpl/following{/other_user}",
+      "gists_url": "https://api.github.com/users/droidpl/gists{/gist_id}",
+      "gravatar_id": "",
+      "html_url": "https://github.com/droidpl",
+      "id": 2143931,
+      "login": "droidpl",
+      "node_id": "MDQ6VXNlcjIxNDM5MzE=",
+      "organizations_url": "https://api.github.com/users/droidpl/orgs",
+      "received_events_url": "https://api.github.com/users/droidpl/received_events",
+      "repos_url": "https://api.github.com/users/droidpl/repos",
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/droidpl/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/droidpl/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/droidpl"
+    },
+    "comments_url": "https://api.github.com/repos/shield-org/Sample/commits/a735d078511acfb769106978e2cd93110fef340b/comments",
+    "commit": {
+      "author": {
+        "date": "2019-07-05T18:08:15Z",
+        "email": "javierdepedrolopez@gmail.com",
+        "name": "Javier de Pedro López"
+      },
+      "comment_count": 0,
+      "committer": {
+        "date": "2019-07-05T18:08:15Z",
+        "email": "noreply@github.com",
+        "name": "GitHub"
+      },
+      "message": "Initial commit",
+      "tree": {
+        "sha": "3bca8e9154357b8584ca897d1bbcf261f7881c57",
+        "url": "https://api.github.com/repos/shield-org/Sample/git/trees/3bca8e9154357b8584ca897d1bbcf261f7881c57"
+      },
+      "url": "https://api.github.com/repos/shield-org/Sample/git/commits/a735d078511acfb769106978e2cd93110fef340b",
+      "verification": {
+        "payload": "tree 3bca8e9154357b8584ca897d1bbcf261f7881c57\nauthor Javier de Pedro López <javierdepedrolopez@gmail.com> 1562350095 +0200\ncommitter GitHub <noreply@github.com> 1562350095 +0200\n\nInitial commit",
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJdH5IPCRBK7hj4Ov3rIwAAdHIIAFjNJuuEZWjcgkcnrjaLkVg+\nCtNQU7DHgvqGL1zLWxBIoTLwG/eYP/oH5E+rKJIgWpBDB3nNsXz7FtZbmqjECnWA\nj9RB2rzf8DtlptJ6P3q5xbap0vaosPiWMTorC+62mqQiYQD5oiT6W9+4fQkjtNVR\nJ+CUfLwtsCvnltsyR7Q2B7vL3BLI2NESz8ykXC0A4xj6ZqmYjnJEKzE7lin6nt44\nNxKzQXapvM155vMXCeeTg/5K/FP6bBUhCx3Q7pXB3MXTbt5Cw8EQfWAjJEDQ12HA\netBYnZyHSsK/1dft3hkkoqg19KBdwPortAe2bAT0CZYkeInt3q7zJJrN+kHwRek=\n=M0wf\n-----END PGP SIGNATURE-----\n",
+        "verified": true
+      }
+    },
+    "committer": {
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "gravatar_id": "",
+      "html_url": "https://github.com/web-flow",
+      "id": 19864447,
+      "login": "web-flow",
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/web-flow"
+    },
+    "html_url": "https://github.com/shield-org/Sample/commit/a735d078511acfb769106978e2cd93110fef340b",
+    "node_id": "MDY6Q29tbWl0MTk1NDUwMjUzOmE3MzVkMDc4NTExYWNmYjc2OTEwNjk3OGUyY2Q5MzExMGZlZjM0MGI=",
+    "parents": [],
+    "sha": "a735d078511acfb769106978e2cd93110fef340b",
+    "url": "https://api.github.com/repos/shield-org/Sample/commits/a735d078511acfb769106978e2cd93110fef340b"
+  },
+  "name": "master",
+  "protected": true,
+  "protection": {
+    "enabled": true,
+    "required_status_checks": {
+      "contexts": [
+        "continuous-integration/jenkins"
+      ],
+      "enforcement_level": "everyone"
+    }
+  },
+  "protection_url": "https://api.github.com/repos/shield-org/Sample/branches/master/protection"
+}
