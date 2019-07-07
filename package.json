@@ -2,7 +2,7 @@
   "name": "github-protector",
   "version": "1.0.0",
   "description": "Interview test to protect the github repository when created on an organization",
-  "main": "dist/firebase.js",
+  "main": "dist/run-firebase.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/shield-org/github-protector.git"
@@ -11,18 +11,17 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "env-cmd .env babel-node src/index.js",
-    "debug": "env-cmd .env nodemon --exec babel-node $NODE_DEBUG_OPTION src/index.js",
+    "start": "env-cmd .env babel-node src/run-local.js",
+    "debug": "env-cmd .env nodemon --exec babel-node $NODE_DEBUG_OPTION src/run-local.js",
     "test": "env-cmd .env jest test --runInBand",
     "test:changed": "jest -o --passWithNoTests",
     "eslint-check": "node_modules/.bin/eslint --print-config . | eslint-config-prettier-check",
     "eslint": "node_modules/.bin/eslint src/",
     "prettier": "prettier --config .prettierrc --write '**/*.js'",
-    "functions:compile": "babel 'src' --out-dir 'dist' --source-maps",
-    "functions:watch": "npm run functions:compile --watch",
-    "functions:serve": "npm run functions:watch & env-cmd .env_functions firebase serve --only functions",
-    "functions:predeploy": "npm run functions:compile",
-    "functions:deploy": "env-cmd .env firebase deploy --only functions"
+    "functions:start": "npm run functions:debug & env-cmd .env_firebase firebase serve --only functions",
+    "functions:debug": "npm run functions:predeploy --watch",
+    "functions:predeploy": "babel 'src' --out-dir 'dist' --source-maps",
+    "functions:deploy": "firebase deploy --only functions"
   },
   "husky": {
     "hooks": {

@@ -20,21 +20,89 @@ To run this scripts you will need to have installed:
 
 ## Running instructions
 
-#### Configure the service variables
-- Select the secret ([Github reference](https://developer.github.com/webhooks/securing/)) you want to use as verification for the webhook
-- Generate a personal access token as explained [here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)
-- Add both secret and token to a ``.env`` file in the root folder
+### Setup
+- Create a `.env` file
+- Add the following content to the file:
+```
+PORT=3000
+GITHUB_WEBHOOK_SECRET=changeme
+GITHUB_PERSONAL_TOKEN=changeme
+LOCAL_ENV=true
+```
+- Change the `GITHUB_WEBHOOK_SECRET` ([Github reference](https://developer.github.com/webhooks/securing/)), this will be a key for the
+webhook deployment.
+- Generate a personal access token as explained [here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) and
+add the key on `GITHUB_PERSONAL_TOKEN`
+
+> Never commit your env variables to the repository with the ones that will be used in a 
+production environment. The ones currently present are just mocks to be changed
+
+### Running locally
+
+To execute the service locally, in the root folder:
+
+```bash
+npm install
+# Normal
+npm run start
+# or with hot reload
+npm run debug
+```
+
+The service will be accessible on ``localhost:3000``. You can configure the ``PORT``
+env variable in the ``.env`` file.
+
+### Running tests
+
+Execute the tests with the following commands:
+
+```bash
+npm install
+npm run test
+```
+
+## Service deployment
+
+### Setup firebase
+
+To deploy this hook to firebase:
+- Ensure you have installed `firebase-tools`
+```
+npm install -g firebase-tools
+```
+- Execute `firebase login` and enter your credentials
+- Execute `firebase init`, select your firebase project and remove the 
+functions folder that appears
+
+### Run function locally
+- Create the environment variables in `.env_firebase`:
 ```
 GITHUB_WEBHOOK_SECRET=changeme
 GITHUB_PERSONAL_TOKEN=changeme
 ```
-> Never commit your env variables to the repository with the ones that will be used in a 
-production environment. The ones currently present are just mocks to be changed
-- Deploy the service and obtain a publicly accessible url
-> Note you can deploy it using ngrok for testing purposes. On a production environment
-You should use an infrastructure such as lambdas.
+- Execute the deployment
+```
+npm run functions:start
+```
 
-#### Add hook to your Github organization
+###  Run function on firebase
+
+- Add the secret and personal token from setup steps:
+```
+firebase functions:config:set github.secret="changeme" github.token="changeme"
+```
+- Execute the deployment
+```
+npm run functions:predeploy
+npm run functions:deploy
+```
+With this you will obtain a url that you can use in the next step to add the 
+webhook on your organization.
+
+> Ensure your account is a paid one, otherwise it will be limited
+in use and the function will not work. 
+
+### Add hook to your Github organization
 - Go to your organization's Github and access *Organization > Settings > Webhooks*
 - Add the url
 - Set content type as application/json
@@ -44,53 +112,6 @@ You should use an infrastructure such as lambdas.
 
 From now on, the service will be working always you create a repository
 within your organization.
-
-### Run locally
-
-To execute the service locally, in the root folder:
-
-```bash
-npm install
-# Normal
-npm run start
-# With hot reload
-npm run debug
-```
-
-The service will be accessible on ``localhost:3000``. You can configure the ``PORT``
-env variable in the ``.env`` file.
-
-## Running the tests
-
-Execute the tests with the following commands:
-
-```bash
-npm install
-npm run test
-```
-
-## Deploy to firebase functions
-
-To deploy this hook to firebase:
-- Ensure you have installed `firebase-tools`
-```
-npm install -g firebase-tools
-```
-- Execute `firebase login` and enter your credentials
-- Execute `firebase init`, select your firebase project
- and remove the functions folder that appears
-Add the secret and personal token from installation
-```
-firebase functions:config:set github.secret="changeme" github.token="changeme"
-```
-- Execute the deploy
-```
-npm run functions:predeploy
-npm run functions:deploy
-```
-
-> Ensure your account is a paid one, otherwise it will be limited
-in use and the function will not work. 
 
 
 ## Sources

@@ -96,3 +96,8 @@ typings/
 
 .idea
 dist/
+
+.env_firebase
+.firebaserc
+firebase.json
+firebase-debug.log

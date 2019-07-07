@@ -1,7 +1,6 @@
 import signer from 'x-hub-signature/src/signer';
 import { throwError } from './api-response';
 import { GITHUB_WEBHOOK_SECRET } from '../utils/env';
-import { getRawBody } from '../utils/utils';
 
 const GITHUB_SECURITY_HEADER = 'x-hub-signature';
 const sign = signer({
@@ -11,7 +10,7 @@ const sign = signer({
 
 export default async (ctx, next) => {
   const securityHeader = ctx.headers[GITHUB_SECURITY_HEADER];
-  const rawBody = Buffer.from(getRawBody(ctx));
+  const rawBody = Buffer.from(ctx.request.rawBody);
 
   if (!securityHeader) {
     throwError('Missing security header', 400, ctx);
