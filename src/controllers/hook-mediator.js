@@ -1,6 +1,7 @@
 import RepositoryBusiness from '../business/repository-business';
 import { delayedExecution } from '../utils/utils';
 import { throwError } from '../utils/api-response';
+import { LOCAL_ENV } from '../utils/env';
 
 const NO_OP = (hookInfo) => ({
   ok: true,
@@ -19,7 +20,7 @@ export default async (hookInfo) => {
         // Another way would be to listen for master branch creation instead of repo creation,
         // but the test says otherwise.
         return delayedExecution(
-          2000,
+          LOCAL_ENV ? 0 : 2000,
           async () => await RepositoryBusiness.onRepositoryCreatedHook(hookInfo.hook),
         );
       } else {

@@ -13,7 +13,7 @@
   "scripts": {
     "start": "env-cmd .env babel-node src/run-local.js",
     "debug": "env-cmd .env nodemon --exec babel-node $NODE_DEBUG_OPTION src/run-local.js",
-    "test": "env-cmd .env_test jest test --runInBand",
+    "test": "env-cmd .env_test jest test --runInBand --silent",
     "test:changed": "env-cmd .env_test jest -o --passWithNoTests",
     "eslint-check": "node_modules/.bin/eslint --print-config . | eslint-config-prettier-check",
     "eslint": "node_modules/.bin/eslint src/",
